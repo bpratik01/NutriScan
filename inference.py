@@ -6,7 +6,7 @@ import streamlit as st
 # Access API keys from Streamlit secrets
 GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
 HUGGINGFACE_API_TOKEN = st.secrets["HUGGINGFACE_API_TOKEN"]
-GEMIONI_API_KEY = st.secrets["GEMIONI_API_KEY"]
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
 
 # Configure Google Gemini API
 genai.configure(api_key=GOOGLE_API_KEY)
