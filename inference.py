@@ -1,19 +1,15 @@
 import requests
-import os
-from dotenv import find_dotenv, load_dotenv
 from PIL import Image
 import google.generativeai as genai
+import streamlit as st
 
-# Load environment variables from .env file
-load_dotenv(find_dotenv())
+# Access API keys from Streamlit secrets
+GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
+HUGGINGFACE_API_TOKEN = st.secrets["HUGGINGFACE_API_TOKEN"]
+GEMIONI_API_KEY = st.secrets["GEMIONI_API_KEY"]
 
-# Configure API keys
-GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+# Configure Google Gemini API
 genai.configure(api_key=GOOGLE_API_KEY)
-
-HUGGINGFACE_API_TOKEN = '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'
-GEMIONI_API_KEY = 'AIzaSyDE7plTxouTUdJPLFrQxFHq3h_Rq0E8CVg'
-os.environ['GEMIONI_API_KEY'] = GEMIONI_API_KEY
 model = genai.GenerativeModel('gemini-pro')
 
 # Function to extract text from image using Hugging Face Inference API
@@ -52,4 +48,5 @@ def img2text(image_path):
         print(f"Error: {response.status_code}")
         print(response.json())
         return "Error", response.status_code, response.json()
+
 

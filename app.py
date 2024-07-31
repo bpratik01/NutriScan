@@ -1,8 +1,7 @@
+import os
 import streamlit as st
 from PIL import Image
 from inference import img2text
-import os
-
 
 st.title("Image to Nutrition Information")
 
