@@ -20,7 +20,7 @@ if st.button("Generate Nutrient Values") and uploaded_file is not None:
         st.markdown(f"**Image Description:** {description}")
         st.markdown(f"**Nutrient Values:** {nutrient_values}")
         # st.markdown("**Full Response:**")
-        st.code(full_response, language='json')
+        # st.code(full_response, language='json')
     
     # Remove the temporary image file after processing
     os.remove(image_path)
