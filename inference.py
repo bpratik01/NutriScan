@@ -31,7 +31,10 @@ def img2text(image_path):
         text = result[0]['generated_text']
         print("Image Description:", text)
 
-        prompt = "You are a nutritionist and you are expected to give nutrient values for the following food description: " + text
+        prompt = """You are a certified nutritionist with expertise in analyzing food and providing comprehensive nutrient values.
+    Based on the following food description, provide detailed nutritional information, including serving size,
+    calories, macronutrients (fat, protein, carbohydrates), and key vitamins and minerals.
+    Additionally, mention any health benefits or considerations. Here is the food description: {text}"""
         response = model.generate_content(prompt)
 
         print("Full Response:", response)
